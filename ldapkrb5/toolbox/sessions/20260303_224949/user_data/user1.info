@@ -1,0 +1,8 @@
+DN=uid=user1,ou=People,dc=ldapkrb5,dc=mydomain,dc=lan
+PRIMARY_GID=20003
+PRIMARY_GROUP=users
+GROUPS=users
+HAS_SSH=1
+HAS_KRB=1
+LOGIN_SHELL=/bin/bash
+HOME_DIR=/home/user1

@@ -1,0 +1,58 @@
+    1  source /etc/profile
+    2  export PS1="(chroot) ${PS1}"
+    3  history
+    4  exit
+    5  ls
+    6  export PS1="(chroot) ${PS1}"
+    7  mount /dev/sda1 /efi
+    8  emerge-webrsync 
+    9  emerge -av cpuid2cpuflags
+   10  eselect profile list | less
+   11  clear
+   12  echo "*/* $(cpuid2cpuflags)" > /etc/portage/package.use/00cpu-flags
+   13  nano /etc/portage/make.conf 
+   14  ln -f /usr/share/zoneinfo/America/Chicago /etc/localtime
+   15  nano /etc/locale.gen 
+   16  locale-gen
+   17  eselect locale list
+   18  eselect locale set 4
+   19  . /etc/profile
+   20  env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
+   21  emerge -av dev-vcs/git ufed bash-completion xfsprogs gentoo-sources 
+   22  emerge -av dev-vcs/git ufed bash-completion xfsprogs gentoo-sources linux-firmware
+   23  emerge -av wget
+   24  ls
+   25  eselect kernel list
+   26  eselect kernel set 1
+   27  cd /usr/src/linux
+   28  wget https://raw.githubusercontent.com/TheSloth1218/dotfiles/refs/heads/main/config?token=GHSAT0AAAAAADUN56WXOGEO3ACBRGXWCA2E2NHE3DQ
+   29  ls
+   30  cat config\?token\=GHSAT0AAAAAADUN56WXOGEO3ACBRGXWCA2E2NHE3DQ 
+   31  ls
+   32  mv config\?token\=GHSAT0AAAAAADUN56WXOGEO3ACBRGXWCA2E2NHE3DQ .config
+   33  make menuconfig
+   34  make -j24
+   35  make -j8
+   36  make -j24
+   37  make -j24
+   38  make -j24
+   39  make -j24
+   40  make modules_install
+   41  make install
+   42  emerge -av genfstab
+   43  echo tux > /etc/hostname
+   44  genfstab / > /etc/fstab
+   45  emerge -av dhcpcd 
+   46  passwd
+   47  echo 'GRUB_PLATFORMS="efi-64"' >> /etc/portage/make.conf
+   48  emerge -av grub
+   49  grub-install --efi-directory=/efi
+   50  emerge -av installkernel
+   51  ufed
+   52  ufed
+   53  emerge -av installkernel
+   54  make install
+   55  rc-update add dhcpcd
+   56  reboot
+   57  history
+   58  history > commands.txt
